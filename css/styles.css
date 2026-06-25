@@ -189,6 +189,22 @@ h1, h2, h3, h4, h5, h6 {
   gap: 15px;
 }
 
+.developer-credit {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.developer-credit span {
+  font-weight: 600;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .theme-toggle-btn {
   display: flex;
   align-items: center;
