@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -20,15 +20,14 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   console.log(`${req.method} ${req.url}`);
 
-  // Normalize URL path
-  let filePath = '.' + req.url;
-  if (filePath === './') {
-    filePath = './index.html';
+  // Normalize URL path and strip query strings
+  let safeUrl = req.url.split('?')[0];
+  if (safeUrl === '/') {
+    safeUrl = '/index.html';
   }
 
-  // Resolve absolute path and verify it is inside the project directory
-  const resolvedPath = path.resolve(filePath);
   const rootDir = path.resolve(__dirname);
+  const resolvedPath = path.join(rootDir, safeUrl);
 
   if (!resolvedPath.startsWith(rootDir)) {
     res.writeHead(403, { 'Content-Type': 'text/plain' });
@@ -43,7 +42,7 @@ const server = http.createServer((req, res) => {
     if (error) {
       if (error.code === 'ENOENT') {
         // Serve index.html for Single Page Application routing if requested path not found
-        fs.readFile('./index.html', (err, indexContent) => {
+        fs.readFile(path.join(rootDir, 'index.html'), (err, indexContent) => {
           if (err) {
             res.writeHead(500);
             res.end('Error loading index.html');
