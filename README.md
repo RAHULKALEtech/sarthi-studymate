@@ -6,6 +6,12 @@ Sarthi StudyMate is a premium, glassmorphic Study Planner web application design
 
 ---
 
+## 🎥 Visual Demo Video
+
+![Sarthi StudyMate Video Demo](sarthi_studymate_demo.webp)
+
+---
+
 ## 🗺️ Application Architecture & Navigation Flow
 
 The application runs as a **Single Page Application (SPA)** with a persistent sidebar and module-based section routing. Below is the workflow diagram showing how modules integrate and synchronize via LocalStorage and the global Event Hub:
