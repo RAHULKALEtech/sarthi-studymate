@@ -1,0 +1,20 @@
+{
+  "name": "sarthi-studymate",
+  "version": "1.0.0",
+  "description": "Sarthi StudyMate - Premium Study Planner App with To-Do List, Pomodoro, Reminders, Quiz Maker, and Flashcards",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "study",
+    "planner",
+    "pomodoro",
+    "reminders",
+    "quizzes",
+    "flashcards"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}

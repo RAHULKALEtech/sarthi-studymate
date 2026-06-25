@@ -1,0 +1,260 @@
+/* Sarthi StudyMate - Tasks Styling */
+
+.tasks-filters-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.tasks-filters-panel .filter-group {
+  flex-grow: 1;
+}
+
+.tasks-filters-panel .filter-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.tasks-filters-panel select {
+  min-width: 140px;
+}
+
+.tasks-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tasks-column {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tasks-column h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.tasks-column h2 span {
+  font-size: 14px;
+  background: var(--accent-gradient);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 100px;
+}
+
+/* Individual Task Card */
+.task-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--accent-primary);
+  background: rgba(255, 255, 255, 0.02);
+  transition: var(--transition-smooth);
+  animation: taskAppear 0.3s ease-out forwards;
+}
+
+@keyframes taskAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .task-card {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+[data-theme="light"] .task-card:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Category indicator colors */
+.task-card.cat-Math { border-left-color: #f97316; }       /* Orange */
+.task-card.cat-Science { border-left-color: #22c55e; }    /* Green */
+.task-card.cat-Languages { border-left-color: #06b6d4; }  /* Cyan */
+.task-card.cat-History { border-left-color: #a855f7; }    /* Purple */
+.task-card.cat-General { border-left-color: #6366f1; }    /* Indigo */
+
+.task-checkbox-container {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  cursor: pointer;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.task-card.completed .task-checkbox {
+  background: var(--accent-success);
+  border-color: var(--accent-success);
+}
+
+.task-checkbox svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  transition: var(--transition-smooth);
+}
+
+.task-card.completed .task-checkbox svg {
+  stroke-dashoffset: 0;
+}
+
+.task-content {
+  flex-grow: 1;
+}
+
+.task-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  word-break: break-word;
+  transition: var(--transition-smooth);
+}
+
+.task-card.completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.task-due {
+  font-size: 11px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.task-due.overdue {
+  color: var(--accent-danger);
+  font-weight: 600;
+}
+
+.task-due svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  align-self: center;
+}
+
+.task-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .task-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.task-btn.delete:hover {
+  color: var(--accent-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.task-btn.focus-btn {
+  color: var(--text-secondary);
+}
+
+.task-btn.focus-btn.active-focus {
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.task-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Empty state styling */
+.empty-msg {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 30px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .tasks-container {
+    grid-template-columns: 1fr;
+  }
+  .tasks-filters-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tasks-filters-panel .filter-controls {
+    flex-direction: column;
+  }
+}

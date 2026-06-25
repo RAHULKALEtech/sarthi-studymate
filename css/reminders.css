@@ -1,0 +1,190 @@
+/* Sarthi StudyMate - Reminders Styling */
+
+.reminders-layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.reminders-list-panel,
+.reminders-logs-panel {
+  min-height: 480px;
+}
+
+.reminders-list-panel h2,
+.reminders-logs-panel h2 {
+  font-size: 18px;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual Reminder Card */
+.reminder-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.01);
+  transition: var(--transition-smooth);
+  animation: remAppear 0.3s ease-out forwards;
+}
+
+@keyframes remAppear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reminder-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .reminder-card {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+[data-theme="light"] .reminder-card:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.reminder-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reminder-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.reminder-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reminder-time-badge {
+  font-size: 11px;
+  color: var(--accent-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reminder-time-badge svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.reminder-repeat-badge {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-primary);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Delete button */
+.reminder-delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--accent-danger);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.reminder-delete-btn:hover {
+  background: var(--accent-danger);
+  color: white;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.reminder-delete-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Notifications Logs styling */
+.reminders-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.log-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+}
+
+[data-theme="light"] .log-item {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.log-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-warning);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.log-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.log-text {
+  flex-grow: 1;
+}
+
+.log-message {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.log-time {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .reminders-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
